@@ -3658,8 +3658,9 @@ Perl_get_debug_opts(pTHX_ const char **s, bool givehelp)
         for (; isWORDCHAR(**s); (*s)++) ;
     }
     else if (givehelp) {
+      PerlIO *out = PerlIO_stdout();
       const char *const *p = usage_msgd;
-      while (*p) PerlIO_puts(PerlIO_stdout(), *p++);
+      while (*p) PerlIO_puts(out, *p++);
     }
     return (int)uv; /* ignore any UV->int conversion loss */
 }
